@@ -1,0 +1,1582 @@
+/* =========================================================
+   INTERNAL PAGE STYLES
+   ========================================================= */
+
+.inner-hero {
+    position: relative;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(7, 26, 51, 0.98),
+            rgba(12, 39, 72, 0.96)
+        );
+    padding: 95px 0 90px;
+    color: var(--white);
+    overflow: hidden;
+}
+
+.inner-hero::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    border-radius: 50%;
+    right: -180px;
+    top: -180px;
+}
+
+.inner-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.inner-hero .hero-label {
+    display: inline-block;
+    margin-bottom: 18px;
+}
+
+.inner-hero h1 {
+    font-size: clamp(2.3rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin: 0 0 20px;
+    font-weight: 700;
+}
+
+.inner-hero h1 span {
+    color: var(--gold-light);
+}
+
+.inner-hero p {
+    max-width: 680px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+
+/* ABOUT PAGE */
+
+.about-content-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-main-text p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.about-side-card {
+    background: var(--navy);
+    color: var(--white);
+    padding: 42px;
+    border-top: 4px solid var(--gold);
+    box-shadow: 0 18px 45px rgba(7, 26, 51, 0.14);
+}
+
+.about-card-icon {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 162, 39, 0.14);
+    color: var(--gold-light);
+    margin-bottom: 25px;
+}
+
+.about-side-card h3 {
+    margin: 0 0 15px;
+    font-size: 1.35rem;
+}
+
+.about-side-card p {
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.about-highlight {
+    background: var(--off-white);
+}
+
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.about-info-card {
+    background: var(--white);
+    padding: 35px 30px;
+    border: 1px solid var(--border);
+    transition: 0.3s ease;
+}
+
+.about-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(7, 26, 51, 0.09);
+}
+
+.info-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 162, 39, 0.12);
+    color: var(--gold);
+    margin-bottom: 22px;
+}
+
+.about-info-card h3 {
+    margin: 0 0 14px;
+    color: var(--navy);
+}
+
+.about-info-card p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+
+/* MINISTER PAGE */
+
+.minister-page-section {
+    background: var(--white);
+}
+
+.minister-profile-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.minister-profile-image {
+    position: relative;
+}
+
+.minister-profile-image::after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    bottom: -20px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--gold);
+    z-index: 0;
+}
+
+.minister-profile-image img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    max-height: 620px;
+    object-fit: cover;
+}
+
+.minister-profile-content h2 {
+    color: var(--navy);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin: 12px 0 5px;
+}
+
+.minister-profile-content h3 {
+    color: var(--gold);
+    font-size: 1.15rem;
+    margin: 0 0 20px;
+    font-weight: 600;
+}
+
+.minister-profile-content p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+.minister-details {
+    display: grid;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.minister-detail {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 18px;
+    background: var(--off-white);
+    border-left: 3px solid var(--gold);
+}
+
+.minister-detail > .material-icons {
+    color: var(--gold);
+}
+
+.minister-detail div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.minister-detail strong {
+    color: var(--navy);
+    font-size: 0.9rem;
+}
+
+.minister-detail span {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.minister-responsibilities {
+    background: var(--off-white);
+}
+
+
+/* =========================================================
+   RESPONSIVE INTERNAL PAGES
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .about-content-grid,
+    .minister-profile-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .about-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .minister-profile-image {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .inner-hero {
+        padding: 70px 0 65px;
+    }
+
+    .inner-hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .inner-hero p {
+        font-size: 0.95rem;
+    }
+
+    .about-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .about-side-card {
+        padding: 30px;
+    }
+
+    .minister-profile-content h2 {
+        font-size: 2rem;
+    }
+
+    .minister-profile-image::after {
+        left: 10px;
+        bottom: -10px;
+    }
+
+}
+/* =========================================================
+   LEADERSHIP PAGE
+   ========================================================= */
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+.leader-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.leader-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(7, 26, 51, 0.10);
+}
+
+.leader-image {
+    height: 360px;
+    overflow: hidden;
+}
+
+.leader-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leader-placeholder {
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--off-white);
+    color: var(--gold);
+}
+
+.leader-placeholder .material-icons {
+    font-size: 90px;
+}
+
+.leader-content {
+    padding: 30px;
+}
+
+.leader-label,
+.news-label {
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.leader-content h3 {
+    color: var(--navy);
+    font-size: 1.45rem;
+    margin: 10px 0;
+}
+
+.leader-content p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROGRAMMES PAGE
+   ========================================================= */
+
+.programme-page-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+.programme-large-card {
+    position: relative;
+    background: var(--white);
+    padding: 40px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.programme-large-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(7, 26, 51, 0.09);
+}
+
+.programme-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 162, 39, 0.12);
+    color: var(--gold);
+    margin-bottom: 25px;
+}
+
+.programme-number {
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    color: rgba(7, 26, 51, 0.07);
+    font-size: 4rem;
+    font-weight: 800;
+}
+
+.programme-large-card h3 {
+    color: var(--navy);
+    font-size: 1.45rem;
+    margin-bottom: 15px;
+}
+
+.programme-large-card p {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.programme-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 25px;
+    color: var(--navy);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.programme-meta .material-icons {
+    color: var(--gold);
+    font-size: 19px;
+}
+
+.programme-bottom-box {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 35px;
+    background: var(--navy);
+    color: var(--white);
+}
+
+.programme-bottom-box > .material-icons {
+    font-size: 45px;
+    color: var(--gold-light);
+}
+
+.programme-bottom-box div {
+    flex: 1;
+}
+
+.programme-bottom-box h3 {
+    margin: 0 0 8px;
+}
+
+.programme-bottom-box p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================================================
+   NEWS PAGE
+   ========================================================= */
+
+.news-featured {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    background: var(--navy);
+    color: var(--white);
+    padding: 40px;
+    margin-bottom: 45px;
+}
+
+.news-featured-icon {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 162, 39, 0.15);
+    color: var(--gold-light);
+}
+
+.news-featured h3 {
+    margin: 8px 0 12px;
+    font-size: 1.5rem;
+}
+
+.news-featured p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.news-card {
+    border: 1px solid var(--border);
+    background: var(--white);
+    transition: 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(7, 26, 51, 0.08);
+}
+
+.news-card-top {
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--off-white);
+    color: var(--gold);
+}
+
+.news-card-top .material-icons {
+    font-size: 55px;
+}
+
+.news-card-body {
+    padding: 28px;
+}
+
+.news-card-body h3 {
+    color: var(--navy);
+    margin: 10px 0;
+}
+
+.news-card-body p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.news-date {
+    display: block;
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   EVENTS PAGE
+   ========================================================= */
+
+.events-history {
+    background: var(--off-white);
+}
+
+.events-empty {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 65px 30px;
+    border: 1px solid var(--border);
+    background: var(--white);
+}
+
+.events-empty-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 162, 39, 0.12);
+    color: var(--gold);
+}
+
+.events-empty-icon .material-icons {
+    font-size: 38px;
+}
+
+.events-empty h3 {
+    color: var(--navy);
+    margin-bottom: 12px;
+}
+
+.events-empty p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* =========================================================
+   JOIN PAGE
+   ========================================================= */
+
+.join-page-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 70px;
+    align-items: start;
+}
+
+.join-information h2,
+.contact-information h2 {
+    color: var(--navy);
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 12px 0 20px;
+}
+
+.join-information h2 span,
+.contact-information h2 span {
+    color: var(--gold);
+}
+
+.join-information > p,
+.contact-information > p {
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+.join-benefit {
+    display: flex;
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.join-benefit > .material-icons {
+    color: var(--gold);
+    margin-top: 4px;
+}
+
+.join-benefit h3 {
+    margin: 0 0 6px;
+    color: var(--navy);
+}
+
+.join-benefit p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.join-form-card,
+.contact-form-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 38px;
+    box-shadow: 0 18px 45px rgba(7, 26, 51, 0.08);
+}
+
+.form-header {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding-bottom: 25px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+}
+
+.form-header > .material-icons {
+    color: var(--gold);
+    font-size: 35px;
+}
+
+.form-header h3 {
+    margin: 0 0 4px;
+    color: var(--navy);
+}
+
+.form-header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--navy);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid var(--border);
+    background: var(--off-white);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.25s ease;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--gold);
+    background: var(--white);
+}
+
+.checkbox-label {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 22px;
+}
+
+.checkbox-label input {
+    margin-top: 3px;
+}
+
+.form-submit {
+    border: none;
+    cursor: pointer;
+}
+
+.form-status {
+    margin-top: 18px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 70px;
+    align-items: start;
+}
+
+.contact-item {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.contact-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 162, 39, 0.12);
+    color: var(--gold);
+}
+
+.contact-item div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.contact-item span {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.contact-item strong {
+    color: var(--navy);
+}
+
+.contact-location {
+    background: var(--off-white);
+}
+
+.location-placeholder {
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: var(--white);
+}
+
+.location-placeholder > .material-icons {
+    color: var(--gold);
+    font-size: 48px;
+}
+
+.location-placeholder h3 {
+    color: var(--navy);
+    margin: 15px 0 8px;
+}
+
+.location-placeholder p {
+    color: var(--muted);
+    margin: 0;
+}
+
+
+/* =========================================================
+   INTERNAL PAGE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .leadership-grid,
+    .programme-page-grid,
+    .news-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .join-page-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .programme-bottom-box {
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .leadership-grid,
+    .programme-page-grid,
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .leader-image,
+    .leader-placeholder {
+        height: 300px;
+    }
+
+    .programme-large-card {
+        padding: 30px;
+    }
+
+    .news-featured {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
+    }
+
+    .programme-bottom-box {
+        align-items: flex-start;
+        padding: 28px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .join-form-card,
+    .contact-form-card {
+        padding: 25px;
+    }
+
+}
+/* =========================================
+   LEADERSHIP
+========================================= */
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+}
+
+.leader-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(7, 26, 51, 0.06);
+}
+
+.leader-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(7, 26, 51, 0.12);
+}
+
+.leader-image {
+    width: 100%;
+    height: 320px;
+    background: var(--off-white);
+    overflow: hidden;
+}
+
+.leader-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.leader-content {
+    padding: 25px 22px 28px;
+}
+
+.leader-label {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.leader-content h3 {
+    margin: 0 0 10px;
+    color: var(--navy);
+    font-size: 21px;
+    line-height: 1.3;
+}
+
+.leader-content p {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.text-link .material-icons {
+    font-size: 17px;
+}
+
+.text-link:hover {
+    color: var(--gold);
+}
+
+
+/* Featured Minister */
+
+.featured-leader {
+    border-top: 4px solid var(--gold);
+}
+
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+
+    .leadership-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .leader-image {
+        height: 360px;
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    .leadership-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 35px;
+    }
+
+    .leader-image {
+        height: 390px;
+    }
+
+    .leader-content {
+        padding: 22px;
+    }
+
+    .leader-content h3 {
+        font-size: 20px;
+    }
+}
+/* =====================================================
+   MINISTER PROFILE - EXTENDED
+===================================================== */
+
+.lead-paragraph {
+    font-size: 17px;
+    line-height: 1.9;
+    color: var(--text);
+    font-weight: 500;
+}
+
+
+/* Minister Photo Caption */
+
+.minister-profile-image {
+    position: relative;
+}
+
+.minister-photo-caption {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    right: 18px;
+    padding: 13px 16px;
+    background: rgba(7, 26, 51, 0.92);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.minister-photo-caption .material-icons {
+    color: var(--gold-light);
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   EXPERIENCE
+===================================================== */
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.experience-card {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(7, 26, 51, 0.05);
+    transition: 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(7, 26, 51, 0.1);
+}
+
+.experience-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 162, 39, 0.12);
+    color: var(--gold);
+    border-radius: 10px;
+}
+
+.experience-icon .material-icons {
+    font-size: 27px;
+}
+
+.experience-period,
+.education-period,
+.timeline-period {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.experience-card h3 {
+    margin: 7px 0 4px;
+    color: var(--navy);
+    font-size: 21px;
+}
+
+.experience-card h4 {
+    margin: 0 0 15px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.experience-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   EDUCATION
+===================================================== */
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 45px;
+}
+
+.education-card {
+    padding: 30px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(7, 26, 51, 0.05);
+}
+
+.education-icon {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy);
+    color: var(--gold-light);
+    border-radius: 10px;
+    margin-bottom: 22px;
+}
+
+.education-card h3 {
+    color: var(--navy);
+    font-size: 19px;
+    line-height: 1.45;
+    margin: 10px 0 12px;
+}
+
+.education-card p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   CERTIFICATIONS
+===================================================== */
+
+.certification-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 45px;
+}
+
+.certification-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 25px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    border-radius: 12px;
+}
+
+.certification-card > .material-icons {
+    color: var(--gold);
+    font-size: 27px;
+}
+
+.certification-card h3 {
+    margin: 0 0 7px;
+    color: var(--navy);
+    font-size: 17px;
+}
+
+.certification-card p {
+    margin: 0 0 5px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.certification-card small {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   LEADERSHIP TIMELINE
+===================================================== */
+
+.leadership-timeline {
+    max-width: 900px;
+    margin: 50px auto 0;
+    position: relative;
+}
+
+.leadership-timeline::before {
+    content: "";
+    position: absolute;
+    left: 27px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.timeline-icon {
+    position: relative;
+    z-index: 2;
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy);
+    color: var(--gold-light);
+    border: 4px solid var(--off-white);
+    border-radius: 50%;
+}
+
+.timeline-content {
+    flex: 1;
+    padding: 22px 25px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.timeline-content h3 {
+    color: var(--navy);
+    margin: 6px 0 4px;
+    font-size: 20px;
+}
+
+.timeline-content h4 {
+    color: var(--muted);
+    margin: 0 0 12px;
+    font-size: 14px;
+}
+
+.timeline-content p {
+    color: var(--muted);
+    line-height: 1.75;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 45px;
+}
+
+.skill-card {
+    text-align: center;
+    padding: 28px 20px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+}
+
+.skill-card > .material-icons {
+    color: var(--gold);
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.skill-card h3 {
+    margin: 0 0 8px;
+    color: var(--navy);
+    font-size: 17px;
+}
+
+.skill-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.project-card {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--white);
+}
+
+.project-icon {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy);
+    color: var(--gold-light);
+    border-radius: 10px;
+}
+
+.project-content h3 {
+    margin: 0 0 12px;
+    color: var(--navy);
+    font-size: 19px;
+    line-height: 1.4;
+}
+
+.project-content p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.75;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   ACHIEVEMENT
+===================================================== */
+
+.achievement-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    max-width: 850px;
+    margin: auto;
+    padding: 35px;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--gold);
+    border-radius: 14px;
+    background: var(--white);
+}
+
+.achievement-icon {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy);
+    color: var(--gold-light);
+    border-radius: 50%;
+}
+
+.achievement-icon .material-icons {
+    font-size: 32px;
+}
+
+.achievement-card h2 {
+    color: var(--navy);
+    margin: 5px 0 7px;
+    font-size: 24px;
+}
+
+.achievement-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+
+/* =====================================================
+   MINISTER MESSAGE
+===================================================== */
+
+.minister-message-section {
+    background: var(--off-white);
+}
+
+.minister-message {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    padding: 55px 30px;
+}
+
+.quote-icon {
+    margin-bottom: 15px;
+}
+
+.quote-icon .material-icons {
+    font-size: 48px;
+    color: var(--gold);
+}
+
+.minister-message h2 {
+    color: var(--navy);
+    font-size: 32px;
+    line-height: 1.35;
+    margin: 12px 0 20px;
+}
+
+.minister-message h2 span {
+    color: var(--gold);
+}
+
+.minister-message > p {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 16px;
+    max-width: 720px;
+    margin: auto;
+}
+
+.message-signature {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.message-signature strong {
+    color: var(--navy);
+    font-size: 17px;
+}
+
+.message-signature span {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .education-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .experience-grid,
+    .certification-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .minister-message h2 {
+        font-size: 27px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .education-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-card {
+        flex-direction: column;
+    }
+
+    .achievement-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timeline-item {
+        gap: 15px;
+    }
+
+    .timeline-content {
+        padding: 18px;
+    }
+
+    .leadership-timeline::before {
+        left: 25px;
+    }
+
+    .minister-message {
+        padding: 40px 15px;
+    }
+
+    .minister-message h2 {
+        font-size: 24px;
+    }
+
+}
+.news-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 18px;
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.news-link:hover {
+    color: var(--gold);
+}
+
+.news-link .material-icons {
+    font-size: 18px;
+}
