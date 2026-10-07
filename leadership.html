@@ -1,341 +1,2011 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Leadership of the Ministry for Defence - Youth Parliament Ghana">
+    <meta
+        name="description"
+        content="Leadership of the Ministry for Defence - Youth Parliament Ghana"
+    >
+
+    <meta name="theme-color" content="#0b1f3a">
+
     <title>Leadership | Ministry for Defence</title>
 
+    <!-- EXISTING CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- MATERIAL ICONS -->
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================
+           LEADERSHIP GRID
+        ========================================= */
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 30px;
+        }
+
+
+        /* =========================================
+           LEADER CARD
+        ========================================= */
+
+        .leader-card {
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+        }
+
+
+        /* =========================================
+           LEADER IMAGE
+        ========================================= */
+.leader-image {
+    width: 100%;
+    height: 460px;
+    overflow: hidden;
+    background: #f3f3f3;
+}
+
+.leader-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+}
+
+/* Mavis */
+.leader-card.mavis-card .leader-image img {
+    object-position: center center;
+}
+
+
+        /* =========================================
+           LEADER CONTENT
+        ========================================= */
+
+        .leader-content {
+            padding: 25px;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .leader-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .leader-header h3 {
+            margin: 7px 0 0;
+        }
+
+        .leader-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================================
+           PLUS / MINUS BUTTON
+        ========================================= */
+
+        .leader-toggle {
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+
+            border-radius: 50%;
+            border: 1px solid #dddddd;
+            background: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+            padding: 0;
+
+            position: relative;
+            z-index: 20;
+            pointer-events: auto;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .leader-toggle:hover {
+            transform: scale(1.08);
+        }
+
+        .leader-toggle .material-icons {
+            font-size: 23px;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+
+        /* =========================================
+           OPEN BUTTON
+        ========================================= */
+
+        .leader-card.open .leader-toggle {
+            background: #111111;
+            color: #ffffff;
+        }
+
+
+        /* =========================================
+           DETAILS
+        ========================================= */
+
+        .leader-details {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-top: 0;
+
+            transition:
+                max-height 0.5s ease,
+                opacity 0.3s ease,
+                margin-top 0.3s ease;
+        }
+
+        .leader-card.open .leader-details {
+            max-height: 1000px;
+            opacity: 1;
+            margin-top: 20px;
+        }
+
+
+        /* =========================================
+           DETAIL ITEMS
+        ========================================= */
+
+        .leader-detail-item {
+            padding: 13px 0;
+            border-top: 1px solid #eeeeee;
+
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .leader-detail-item strong {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .leader-detail-item span {
+            font-size: 14px;
+            line-height: 1.65;
+            word-break: break-word;
+        }
+
+
+        /* =========================================
+           EMAIL LINKS
+        ========================================= */
+
+        .leader-detail-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .leader-detail-item a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           MINISTER
+        ========================================= */
+
+        .featured-leader {
+            border: 2px solid rgba(0, 0, 0, 0.08);
+        }
+
+
+        /* =========================================
+           EXECUTIVE TEAM
+        ========================================= */
+
+        .executives-section {
+            background: #f7f8fa;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .executives-section .section-heading {
+            margin-bottom: 40px;
+        }
+
+        .executives-section .section-heading p {
+            max-width: 700px;
+            margin: 15px auto 0;
+            line-height: 1.7;
+            color: #666666;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 768px) {
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .leader-image {
+                height: 320px;
+            }
+
+            .leader-content {
+                padding: 20px;
+            }
+
+            .leader-header h3 {
+                font-size: 20px;
+            }
+        }
+
+
+        @media (max-width: 480px) {
+
+            .leader-image {
+                height: 280px;
+            }
+
+            .leader-content {
+                padding: 18px;
+            }
+
+            .leader-header h3 {
+                font-size: 18px;
+            }
+
+            .leader-label {
+                font-size: 10px;
+            }
+
+            .leader-toggle {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+            }
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<div class="top-bar">
-    <div class="container top-bar-content">
-        <span>
-            <span class="material-icons">account_balance</span>
-            Youth Parliament Ghana
-        </span>
 
-        <span>
-            <span class="material-icons">location_on</span>
-            Ghana
-        </span>
+    <!-- =========================================
+         TOP BAR
+    ========================================== -->
+
+    <div class="top-bar">
+
+        <div class="container top-bar-content">
+
+            <span>
+                <span class="material-icons">account_balance</span>
+                Youth Parliament Ghana
+            </span>
+
+            <span>
+                <span class="material-icons">location_on</span>
+                Ghana
+            </span>
+
+        </div>
+
     </div>
-</div>
 
 
-<header class="header">
+    <!-- =========================================
+         HEADER
+    ========================================== -->
 
-    <div class="container nav-container">
+    <header class="header">
 
-        <a href="index.html" class="brand">
-            <img src="images/ministry.png"
-                 alt="Youth Parliament Ghana Logo"
-                 class="logo">
+        <div class="container nav-container">
 
-            <div class="brand-text">
-                <strong>MINISTRY FOR DEFENCE</strong>
-                <span>Youth Parliament Ghana</span>
+            <a class="brand" href="index.html">
+
+                <img
+                    class="logo"
+                    src="images/ministry.png"
+                    alt="Youth Parliament Ghana Logo"
+                >
+
+                <div class="brand-text">
+
+                    <strong>MINISTRY FOR DEFENCE</strong>
+
+                    <span>Youth Parliament Ghana</span>
+
+                </div>
+
+            </a>
+
+
+            <!-- DESKTOP NAVIGATION -->
+
+            <nav class="navigation">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="minister.html">
+                    Minister
+                </a>
+
+                <a
+                    class="active"
+                    href="leadership.html"
+                >
+                    Leadership
+                </a>
+
+                <a href="programmes.html">
+                    Programmes
+                </a>
+
+                <a href="news.html">
+                    News
+                </a>
+
+                <a href="events.html">
+                    Events
+                </a>
+
+                <a
+                    class="nav-button"
+                    href="join.html"
+                >
+                    Join Us
+                </a>
+
+            </nav>
+
+
+            <!-- MOBILE MENU -->
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open menu"
+            >
+
+                <span class="material-icons">
+                    menu
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- MOBILE NAVIGATION -->
+
+        <div
+            class="mobile-navigation"
+            id="mobileNavigation"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="minister.html">
+                Minister
+            </a>
+
+            <a
+                class="active"
+                href="leadership.html"
+            >
+                Leadership
+            </a>
+
+            <a href="programmes.html">
+                Programmes
+            </a>
+
+            <a href="news.html">
+                News
+            </a>
+
+            <a href="events.html">
+                Events
+            </a>
+
+            <a
+                class="mobile-join"
+                href="join.html"
+            >
+                Join Us
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <section class="inner-hero">
+
+        <div class="container">
+
+            <span class="hero-label">
+                MINISTRY LEADERSHIP
+            </span>
+
+            <h1>
+                Our <span>Leadership</span>
+            </h1>
+
+            <p>
+                Meet the leadership structure of the Ministry for Defence
+                of Youth Parliament Ghana.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         MAIN LEADERSHIP
+    ========================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-heading centered">
+
+                <span class="section-label">
+                    LEADERSHIP
+                </span>
+
+                <h2>
+                    Leading with <span>responsibility.</span>
+                </h2>
+
+                <div class="heading-line"></div>
+
             </div>
-        </a>
-
-        <nav class="navigation">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="minister.html">Minister</a>
-            <a href="leadership.html" class="active">Leadership</a>
-            <a href="programmes.html">Programmes</a>
-            <a href="news.html">News</a>
-            <a href="events.html">Events</a>
-            
-
-            <a href="join.html" class="nav-button">Join Us</a>
-        </nav>
-
-        <button class="menu-toggle" id="menuToggle">
-            <span class="material-icons">menu</span>
-        </button>
-
-    </div>
-
-    <div class="mobile-navigation" id="mobileNavigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="minister.html">Minister</a>
-        <a href="leadership.html" class="active">Leadership</a>
-        <a href="programmes.html">Programmes</a>
-        <a href="news.html">News</a>
-        <a href="events.html">Events</a>
-        
-        <a href="join.html" class="mobile-join">Join Us</a>
-    </div>
-
-</header>
 
 
-<section class="inner-hero">
-    <div class="container">
-
-        <span class="hero-label">MINISTRY LEADERSHIP</span>
-
-        <h1>
-            Our <span>Leadership</span>
-        </h1>
-
-        <p>
-            Meet the leadership structure of the Ministry for Defence
-            of Youth Parliament Ghana.
-        </p>
-
-    </div>
-</section>
+            <div class="leadership-grid">
 
 
-<section class="section">
+                <!-- =================================
+                     PRESIDENT
+                ================================== -->
 
-    <div class="container">
+                <article class="leader-card">
 
-        <div class="section-heading centered">
+                    <div class="leader-image">
 
-            <span class="section-label">LEADERSHIP</span>
+                        <img
+                            src="images/president.jpeg"
+                            alt="Hon. Osman Abdul Latif Cheboo"
+                        >
+
+                    </div>
+
+                    <div class="leader-content">
+
+                        <div class="leader-header">
+
+                            <div>
+
+                                <span class="leader-label">
+                                    PRESIDENT
+                                </span>
+
+                                <h3>
+                                    Hon. Osman Abdul Latif Cheboo
+                                </h3>
+
+                            </div>
+
+                            <button
+                                class="leader-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-label="Show President information"
+                            >
+
+                                <span class="material-icons">
+                                    add
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <p>
+                            President, Youth Parliament Ghana.
+                        </p>
+
+                        <div class="leader-details">
+
+                            <div class="leader-detail-item">
+                                <strong>Full Name</strong>
+                                <span>
+                                    Hon. Osman Abdul Latif Cheboo
+                                </span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Position</strong>
+                                <span>
+                                    President, Youth Parliament Ghana
+                                </span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Institution</strong>
+                                <span>
+                                    Youth Parliament Ghana
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================
+                     VICE PRESIDENT
+                ================================== -->
+
+                <article class="leader-card">
+
+                    <div class="leader-image">
+
+                        <img
+                            src="images/images.jpg"
+                            alt="Name of the Minister"
+                        >
+
+                    </div>
+
+                    <div class="leader-content">
+
+                        <div class="leader-header">
+
+                            <div>
+
+                                <span class="leader-label">
+                                    THE MINISTER FOR DEFENCE
+                                </span>
+
+                                <h3>
+                                    Kenneth Gilbert Adjei
+                                </h3>
+
+                            </div>
+
+                            <button
+                                class="leader-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-label="Show Vice President information"
+                            >
+
+                                <span class="material-icons">
+                                    add
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <p>
+                            Minister for Defence, Ghana.
+                        </p>
+
+                        <div class="leader-details">
+
+                            <div class="leader-detail-item">
+                                <strong>Full Name</strong>
+                                <span>
+                                  Kenneth Gilbert Adjei
+                                </span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Position</strong>
+                                <span>
+                                    Minister for Defence, Ghana.
+                                </span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Institution</strong>
+                                <span>
+                                    Republic of Ghana
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================
+                     MINISTER FOR DEFENCE
+                     NO PLUS BUTTON
+                ================================== -->
+
+                <article class="leader-card featured-leader">
+
+                    <div class="leader-image">
+
+                        <img
+                            src="images/image.jpeg"
+                            alt="Hon. Eric Andoh"
+                        >
+
+                    </div>
+
+                    <div class="leader-content">
+
+                        <span class="leader-label">
+                            MINISTER FOR DEFENCE
+                        </span>
+
+                        <h3>
+                            Hon. Eric Andoh
+                        </h3>
+
+                        <p>
+                            Minister for Defence, Youth Parliament Ghana.
+                        </p>
+
+                        <a
+                            class="text-link"
+                            href="minister.html"
+                        >
+
+                            View Profile
+
+                            <span class="material-icons">
+                                arrow_forward
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================
+                     PROGRAMME OFFICER
+                ================================== -->
+
+                <article class="leader-card mavis-card">
+
+                    <div class="leader-image">
+
+                        <img
+                            src="images/mavisohene.jpeg"
+                            alt="Hon. Mavis Ohene Boakye"
+                        >
+
+                    </div>
+
+                    <div class="leader-content">
+
+                        <div class="leader-header">
+
+                            <div>
+
+                                <span class="leader-label">
+                                    NATIONAL DIRECTORATE FOR PROJECTS,PROGRAMS AND LOGISTICS
+                                </span>
+
+                                <h3>
+                                    Hon. Mavis Ohene Boakye
+                                </h3>
+
+                            </div>
+
+                            <button
+                                class="leader-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-label="Show Programme Officer information"
+                            >
+
+                                <span class="material-icons">
+                                    add
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <p>
+                            National Directorate for projects, prgrams and logistics.,
+                            Youth Parliament Ghana.
+                        </p>
+
+                        <div class="leader-details">
+
+                            <div class="leader-detail-item">
+                                <strong>Full Name</strong>
+                                <span>
+                                    Hon. Mavis Ohene Boakye
+                                </span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Position</strong>
+                                <span>
+                                    National Directorate for projects, prgrams and logistics
+                                </span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Institution</strong>
+                                <span>
+                                    Youth Parliament Ghana
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         EXECUTIVE TEAM
+    ========================================== -->
+
+    <section class="section executives-section">
+
+        <div class="container">
+
+            <div class="section-heading centered">
+
+                <span class="section-label">
+                    MINISTRY FOR DEFENCE
+                </span>
+
+                <h2>
+                    Executive <span>Team</span>
+                </h2>
+
+                <div class="heading-line"></div>
+
+                <p>
+                    The executive officers responsible for supporting
+                    the Ministry for Defence and coordinating its operations.
+                </p>
+
+            </div>
+
+
+            <div class="leadership-grid">
+
+
+                <!-- =================================
+                     DEPUTY MINISTER
+                ================================== -->
+
+                <article class="leader-card">
+
+                    <div class="leader-image">
+
+                        <img
+                            src="images/asante.jpeg"
+                            alt="Hon. Asante Vyas"
+                        >
+
+                    </div>
+
+                    <div class="leader-content">
+
+                        <div class="leader-header">
+
+                            <div>
+
+                                <span class="leader-label">
+                                    DEPUTY MINISTER
+                                </span>
+
+                                <h3>
+                                    Hon. Asante Vyas
+                                </h3>
+
+                            </div>
+
+                            <button
+                                class="leader-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-label="Show Deputy Minister information"
+                            >
+
+                                <span class="material-icons">
+                                    add
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <p>
+                            Deputy Minister, Ministry for Defence.
+                        </p>
+
+                        <div class="leader-details">
+
+                            <div class="leader-detail-item">
+                                <strong>Full Name</strong>
+                                <span>Hon. Asante Vyas</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Position</strong>
+                                <span>Deputy Minister</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Region</strong>
+                                <span>Eastern Region</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Constituency</strong>
+                                <span>Suhum</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>WhatsApp Number</strong>
+                                <span>0538497794</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Email</strong>
+                                <span>
+                                    <a href="mailto:asantevyas45@gmail.com">
+                                        asantevyas45@gmail.com
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================
+                     CHIEF OF STAFF
+                ================================== -->
+
+                <article class="leader-card">
+
+                    <div class="leader-image">
+
+                        <img
+                            src="images/collins.jpeg"
+                            alt="Agyapong Collins"
+                        >
+
+                    </div>
+
+                    <div class="leader-content">
+
+                        <div class="leader-header">
+
+                            <div>
+
+                                <span class="leader-label">
+                                    CHIEF OF STAFF / SECRETARY
+                                </span>
+
+                                <h3>
+                                    Agyapong Collins
+                                </h3>
+
+                            </div>
+
+                            <button
+                                class="leader-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-label="Show Chief of Staff information"
+                            >
+
+                                <span class="material-icons">
+                                    add
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <p>
+                            Chief of Staff / Secretary,
+                            Ministry for Defence.
+                        </p>
+
+                        <div class="leader-details">
+
+                            <div class="leader-detail-item">
+                                <strong>Full Name</strong>
+                                <span>Agyapong Collins</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Position</strong>
+                                <span>Chief of Staff / Secretary</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Constituency</strong>
+                                <span>Ayawaso West Wuogon</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Phone Number</strong>
+                                <span>0550855613</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Email</strong>
+                                <span>
+                                    <a href="mailto:collinsagayapong348@gmail.com">
+                                        collinsagayapong348@gmail.com
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================
+                     OPERATIONS OFFICER
+                ================================== -->
+
+                <article class="leader-card">
+
+                    <div class="leader-image">
+
+                        <img
+                            src="images/caleb.jpeg"
+                            alt="Caleb Nii Bortey"
+                        >
+
+                    </div>
+
+                    <div class="leader-content">
+
+                        <div class="leader-header">
+
+                            <div>
+
+                                <span class="leader-label">
+                                    OPERATIONS OFFICER
+                                </span>
+
+                                <h3>
+                                    Caleb Nii Bortey
+                                </h3>
+
+                            </div>
+
+                            <button
+                                class="leader-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-label="Show Operations Officer information"
+                            >
+
+                                <span class="material-icons">
+                                    add
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <p>
+                            Operations Officer,
+                            Ministry for Defence.
+                        </p>
+
+                        <div class="leader-details">
+
+                            <div class="leader-detail-item">
+                                <strong>Full Name</strong>
+                                <span>Caleb Nii Bortey</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Position</strong>
+                                <span>Operations Officer</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Region</strong>
+                                <span>Greater Accra Region</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Constituency</strong>
+                                <span>Krowor</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Phone / WhatsApp</strong>
+                                <span>0553228081</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Email</strong>
+                                <span>
+                                    <a href="mailto:borteycaleb617@gmail.com">
+                                        borteycaleb617@gmail.com
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================
+                     RESEARCH & POLICY OFFICER
+                ================================== -->
+
+                <article class="leader-card">
+
+                    <div class="leader-image">
+
+                        <img
+                            src="images/zack.jpeg"
+                            alt="Odonkor Zechariah"
+                        >
+
+                    </div>
+
+                    <div class="leader-content">
+
+                        <div class="leader-header">
+
+                            <div>
+
+                                <span class="leader-label">
+                                    RESEARCH & POLICY OFFICER
+                                </span>
+
+                                <h3>
+                                    Odonkor Zechariah
+                                </h3>
+
+                            </div>
+
+                            <button
+                                class="leader-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-label="Show Research and Policy Officer information"
+                            >
+
+                                <span class="material-icons">
+                                    add
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <p>
+                            Research & Policy Officer,
+                            Ministry for Defence.
+                        </p>
+
+                        <div class="leader-details">
+
+                            <div class="leader-detail-item">
+                                <strong>Full Name</strong>
+                                <span>Odonkor Zechariah</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Position</strong>
+                                <span>Research & Policy Officer</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Region</strong>
+                                <span>Western Region</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Constituency</strong>
+                                <span>Kwesimintsim</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Phone / WhatsApp</strong>
+                                <span>0507779548</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Email</strong>
+                                <span>
+                                    <a href="mailto:zechodonkor1234@gmail.com">
+                                        zechodonkor1234@gmail.com
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================
+                     TREASURER
+                ================================== -->
+
+                <article class="leader-card">
+
+                    <div class="leader-image">
+
+                        <img
+                            src="images/solo.jpeg"
+                            alt="Osei Solomon Addo"
+                        >
+
+                    </div>
+
+                    <div class="leader-content">
+
+                        <div class="leader-header">
+
+                            <div>
+
+                                <span class="leader-label">
+                                    TREASURER / FINANCE OFFICER
+                                </span>
+
+                                <h3>
+                                    Osei Solomon Addo
+                                </h3>
+
+                            </div>
+
+                            <button
+                                class="leader-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-label="Show Finance Officer information"
+                            >
+
+                                <span class="material-icons">
+                                    add
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <p>
+                            Treasurer / Finance Officer,
+                            Ministry for Defence.
+                        </p>
+
+                        <div class="leader-details">
+
+                            <div class="leader-detail-item">
+                                <strong>Full Name</strong>
+                                <span>Osei Solomon Addo</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Position</strong>
+                                <span>Treasurer / Finance Officer</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Region</strong>
+                                <span>Eastern Region</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Constituency</strong>
+                                <span>Upper West Akim</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Phone / WhatsApp</strong>
+                                <span>0598252387</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Email</strong>
+                                <span>
+                                    <a href="mailto:solomonoseiaddo@gmail.com">
+                                        solomonoseiaddo@gmail.com
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================
+                     PRO / COMMUNICATIONS OFFICER
+                ================================== -->
+
+                <article class="leader-card">
+
+                    <div class="leader-image">
+
+                        <img
+                            src="images/beka.jpeg"
+                            alt="Hon. Bikeko Isaac"
+                        >
+
+                    </div>
+
+                    <div class="leader-content">
+
+                        <div class="leader-header">
+
+                            <div>
+
+                                <span class="leader-label">
+                                    PRO / COMMUNICATIONS OFFICER
+                                </span>
+
+                                <h3>
+                                    Hon. Bikeko Isaac
+                                </h3>
+
+                            </div>
+
+                            <button
+                                class="leader-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-label="Show Communications Officer information"
+                            >
+
+                                <span class="material-icons">
+                                    add
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <p>
+                            PRO / Communications Officer,
+                            Ministry for Defence.
+                        </p>
+
+                        <div class="leader-details">
+
+                            <div class="leader-detail-item">
+                                <strong>Full Name</strong>
+                                <span>Hon. Bikeko Isaac</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Position</strong>
+                                <span>PRO / Communications Officer</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Region</strong>
+                                <span>Oti Region</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Constituency</strong>
+                                <span>Krachi East Constituency</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Phone Number</strong>
+                                <span>0598 061 627</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Email</strong>
+                                <span>
+                                    <a href="mailto:bikekobrainy@gmail.com">
+                                        bikekobrainy@gmail.com
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================
+                     PROTOCOL OFFICER
+                ================================== -->
+
+                <article class="leader-card">
+
+                    <div class="leader-image">
+
+                        <img
+                            src="images/danyy.jpeg"
+                            alt="Daniel Abalo"
+                        >
+
+                    </div>
+
+                    <div class="leader-content">
+
+                        <div class="leader-header">
+
+                            <div>
+
+                                <span class="leader-label">
+                                    PROTOCOL OFFICER
+                                </span>
+
+                                <h3>
+                                    Daniel Abalo
+                                </h3>
+
+                            </div>
+
+                            <button
+                                class="leader-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-label="Show Protocol Officer information"
+                            >
+
+                                <span class="material-icons">
+                                    add
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <p>
+                            Protocol Officer,
+                            Ministry for Defence.
+                        </p>
+
+                        <div class="leader-details">
+
+                            <div class="leader-detail-item">
+                                <strong>Full Name</strong>
+                                <span>Daniel Abalo</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Position</strong>
+                                <span>Protocol Officer</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Location</strong>
+                                <span>Accra, Ghana</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Phone Number</strong>
+                                <span>0550479291</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Email</strong>
+                                <span>
+                                    <a href="mailto:abalodaniel20@gmail.com">
+                                        abalodaniel20@gmail.com
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =================================
+                     ORGANIZER
+                ================================== -->
+
+                <article class="leader-card">
+
+                    <div class="leader-image">
+
+                        <img
+                            src="images/berry.jpeg"
+                            alt="Berenice Batchar"
+                        >
+
+                    </div>
+
+                    <div class="leader-content">
+
+                        <div class="leader-header">
+
+                            <div>
+
+                                <span class="leader-label">
+                                    ORGANIZER
+                                </span>
+
+                                <h3>
+                                    Berenice Batchar
+                                </h3>
+
+                            </div>
+
+                            <button
+                                class="leader-toggle"
+                                type="button"
+                                aria-expanded="false"
+                                aria-label="Show Organizer information"
+                            >
+
+                                <span class="material-icons">
+                                    add
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                        <p>
+                            Organizer,
+                            Ministry for Defence.
+                        </p>
+
+                        <div class="leader-details">
+
+                            <div class="leader-detail-item">
+                                <strong>Full Name</strong>
+                                <span>Berenice Batchar</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Position</strong>
+                                <span>Organizer</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Phone Number</strong>
+                                <span>0537579878</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>WhatsApp Number</strong>
+                                <span>0261947308</span>
+                            </div>
+
+                            <div class="leader-detail-item">
+                                <strong>Email</strong>
+                                <span>
+                                    <a href="mailto:batcharberenice@gmail.com">
+                                        batcharberenice@gmail.com
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         JOIN SECTION
+    ========================================== -->
+
+    <section class="join-section">
+
+        <div class="container join-content">
+
+            <span class="section-label">
+                MINISTRY FOR DEFENCE
+            </span>
 
             <h2>
-                Leading with <span>responsibility.</span>
+                Working together for responsible youth participation.
             </h2>
 
-            <div class="heading-line"></div>
-
-        </div>
-
-
-        <div class="leadership-grid">
-
-    <!-- PRESIDENT -->
-    <article class="leader-card">
-
-        <div class="leader-image">
-            <img src="images/president.jpg"
-                 alt="President of Youth Parliament Ghana">
-        </div>
-
-        <div class="leader-content">
-
-            <span class="leader-label">
-                PRESIDENT
-            </span>
-
-            <h3>
-                Hon. Osman Abdul Latif Cheboo
-            </h3>
-
             <p>
-                President, Youth Parliament Ghana.
+                Explore the Ministry's programmes, activities and
+                opportunities for youth engagement.
             </p>
 
-            <a href="#" class="text-link">
-                View Profile
-                <span class="material-icons">arrow_forward</span>
+            <a
+                class="btn btn-light"
+                href="programmes.html"
+            >
+
+                Explore Programmes
+
+                <span class="material-icons">
+                    arrow_forward
+                </span>
+
             </a>
 
         </div>
 
-    </article>
+    </section>
 
 
-    <!-- VICE PRESIDENT -->
-    <article class="leader-card">
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
 
-        <div class="leader-image">
-            <img src="images/vice-president.jpg"
-                 alt="Vice President of Youth Parliament Ghana">
-        </div>
+    <footer class="footer">
 
-        <div class="leader-content">
-
-            <span class="leader-label">
-                VICE PRESIDENT
-            </span>
-
-            <h3>
-                Name of Vice President
-            </h3>
-
-            <p>
-                Vice President, Youth Parliament Ghana.
-            </p>
-
-            <a href="#" class="text-link">
-                View Profile
-                <span class="material-icons">arrow_forward</span>
-            </a>
-
-        </div>
-
-    </article>
+        <div class="container footer-grid">
 
 
-    <!-- MINISTER FOR DEFENCE -->
-    <article class="leader-card featured-leader">
+            <div class="footer-about">
 
-        <div class="leader-image">
-            <img src="images/image.jpeg"
-                 alt="Hon. Eric Andoh">
-        </div>
+                <div class="footer-brand">
 
-        <div class="leader-content">
+                    <img
+                        src="images/ministry.png"
+                        alt="Youth Parliament Ghana"
+                    >
 
-            <span class="leader-label">
-                MINISTER FOR DEFENCE
-            </span>
+                    <div>
 
-            <h3>
-                Hon. Eric Andoh
-            </h3>
+                        <strong>
+                            MINISTRY FOR DEFENCE
+                        </strong>
 
-            <p>
-                Minister for Defence, Youth Parliament Ghana.
-            </p>
+                        <span>
+                            Youth Parliament Ghana
+                        </span>
 
-            <a href="minister.html" class="text-link">
-                View Profile
-                <span class="material-icons">arrow_forward</span>
-            </a>
+                    </div>
 
-        </div>
-
-    </article>
-
-
-    <!-- PROGRAMME OFFICER -->
-    <article class="leader-card">
-
-        <div class="leader-image">
-            <img src="images/programme-officer.jpg"
-                 alt="Programme Officer of Youth Parliament Ghana">
-        </div>
-
-        <div class="leader-content">
-
-            <span class="leader-label">
-                PROGRAMME OFFICER / COORDINATOR
-            </span>
-
-            <h3>
-                Hon. Mavis Ohene Boakye
-            </h3>
-
-            <p>
-                Programme Officer / Coordinator,
-                Youth Parliament Ghana.
-            </p>
-
-            <a href="#" class="text-link">
-                View Profile
-                <span class="material-icons">arrow_forward</span>
-            </a>
-
-        </div>
-
-    </article>
-
-</div>
-
-    </div>
-
-</section>
-
-
-<section class="join-section">
-
-    <div class="container join-content">
-
-        <span class="section-label">MINISTRY FOR DEFENCE</span>
-
-        <h2>
-            Working together for responsible youth participation.
-        </h2>
-
-        <p>
-            Explore the Ministry's programmes, activities and
-            opportunities for youth engagement.
-        </p>
-
-        <a href="programmes.html" class="btn btn-light">
-            Explore Programmes
-            <span class="material-icons">arrow_forward</span>
-        </a>
-
-    </div>
-
-</section>
-
-
-<footer class="footer">
-
-    <div class="container footer-grid">
-
-        <div class="footer-about">
-
-            <div class="footer-brand">
-                <img src="images/ministry.png" alt="Youth Parliament Ghana">
-
-                <div>
-                    <strong>MINISTRY FOR DEFENCE</strong>
-                    <span>Youth Parliament Ghana</span>
                 </div>
+
+                <p>
+                    Promoting responsible youth leadership,
+                    citizenship and constructive national engagement.
+                </p>
+
             </div>
 
-            <p>
-                Promoting responsible youth leadership,
-                citizenship and constructive national engagement.
-            </p>
+
+            <div class="footer-column">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="minister.html">
+                    Minister
+                </a>
+
+                <a href="leadership.html">
+                    Leadership
+                </a>
+
+                <a href="programmes.html">
+                    Programmes
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Information
+                </h3>
+
+                <a href="news.html">
+                    News
+                </a>
+
+                <a href="events.html">
+                    Events
+                </a>
+
+                <a href="join.html">
+                    Join Us
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    Youth Parliament Ghana
+                </p>
+
+                <p>
+                    Ghana
+                </p>
+
+                <p>
+                    Email:
+                    info@youthparliamentghana.org
+                </p>
+
+            </div>
 
         </div>
 
-        <div class="footer-column">
-            <h3>Quick Links</h3>
-            <a href="about.html">About</a>
-            <a href="minister.html">Minister</a>
-            <a href="leadership.html">Leadership</a>
-            <a href="programmes.html">Programmes</a>
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <p>
+                    ©
+                    <span id="currentYear"></span>
+                    Youth Parliament Ghana.
+                    All rights reserved.
+                </p>
+
+                <p>
+                    Ministry for Defence
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="footer-column">
-            <h3>Information</h3>
-            <a href="news.html">News</a>
-            <a href="events.html">Events</a>
-            <a href="join.html">Join Us</a>
-            
-        </div>
+    </footer>
 
-        <div class="footer-column">
-            <h3>Contact</h3>
-            <p>Youth Parliament Ghana</p>
-            <p>Ghana</p>
-            <p>Email: info@youthparliamentghana.org</p>
-        </div>
 
-    </div>
+    <!-- EXISTING MAIN SCRIPT -->
 
-    <div class="footer-bottom">
-        <div class="container">
-            <p>
-                © <span id="currentYear"></span>
-                Youth Parliament Ghana. All rights reserved.
-            </p>
+    <script src="js/script.js"></script>
 
-            <p>Ministry for Defence</p>
-        </div>
-    </div>
 
-</footer>
+    <!-- =========================================
+         LEADERSHIP PLUS / MINUS SCRIPT
+    ========================================== -->
 
-<script src="js/script.js"></script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /*
+             * Select every leadership + button.
+             */
+            const toggleButtons =
+                document.querySelectorAll(".leader-toggle");
+
+
+            console.log(
+                "Leadership toggle buttons found:",
+                toggleButtons.length
+            );
+
+
+            toggleButtons.forEach(function (button) {
+
+                button.addEventListener("click", function (event) {
+
+                    /*
+                     * Prevent the button from triggering
+                     * anything else on the card.
+                     */
+                    event.preventDefault();
+                    event.stopPropagation();
+
+
+                    /*
+                     * Find the card containing this button.
+                     */
+                    const card =
+                        button.closest(".leader-card");
+
+
+                    if (!card) {
+                        console.error(
+                            "Leadership card not found."
+                        );
+                        return;
+                    }
+
+
+                    /*
+                     * Find the hidden details.
+                     */
+                    const details =
+                        card.querySelector(".leader-details");
+
+
+                    /*
+                     * Find the Material Icon.
+                     */
+                    const icon =
+                        button.querySelector(".material-icons");
+
+
+                    if (!details) {
+                        console.error(
+                            "Leadership details not found."
+                        );
+                        return;
+                    }
+
+
+                    /*
+                     * Check whether the card
+                     * is already open.
+                     */
+                    const currentlyOpen =
+                        card.classList.contains("open");
+
+
+                    /*
+                     * CLOSE
+                     */
+                    if (currentlyOpen) {
+
+                        card.classList.remove("open");
+
+                        button.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        button.setAttribute(
+                            "aria-label",
+                            "Show information"
+                        );
+
+                        if (icon) {
+                            icon.textContent = "add";
+                        }
+
+                    }
+
+                    /*
+                     * OPEN
+                     */
+                    else {
+
+                        card.classList.add("open");
+
+                        button.setAttribute(
+                            "aria-expanded",
+                            "true"
+                        );
+
+                        button.setAttribute(
+                            "aria-label",
+                            "Hide information"
+                        );
+
+                        if (icon) {
+                            icon.textContent = "remove";
+                        }
+
+                    }
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+
+    <!-- =========================================
+         CURRENT YEAR
+    ========================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const yearElement =
+                document.getElementById("currentYear");
+
+            if (yearElement) {
+                yearElement.textContent =
+                    new Date().getFullYear();
+            }
+
+        });
+
+    </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const buttons = document.querySelectorAll(".leader-toggle");
+
+    console.log("Leadership buttons found:", buttons.length);
+
+    buttons.forEach(function (button) {
+
+        button.addEventListener("click", function (event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            const card = button.closest(".leader-card");
+
+            if (!card) {
+                console.error("Leader card not found.");
+                return;
+            }
+
+            const details = card.querySelector(".leader-details");
+            const icon = button.querySelector(".material-icons");
+
+            if (!details) {
+                console.error("Leader details not found.");
+                return;
+            }
+
+            const isOpen = card.classList.contains("open");
+
+            if (isOpen) {
+
+                card.classList.remove("open");
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                button.setAttribute(
+                    "aria-label",
+                    "Show information"
+                );
+
+                if (icon) {
+                    icon.textContent = "add";
+                }
+
+            } else {
+
+                card.classList.add("open");
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+                button.setAttribute(
+                    "aria-label",
+                    "Hide information"
+                );
+
+                if (icon) {
+                    icon.textContent = "remove";
+                }
+
+            }
+
+        });
+
+    });
+
+});
+</script>
+
 
 </body>
+
 </html>
