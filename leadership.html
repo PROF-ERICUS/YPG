@@ -309,6 +309,65 @@
                 min-width: 40px;
             }
         }
+        /* ================================
+   MOBILE LEADERSHIP TOGGLE FIX
+================================ */
+
+.leader-card {
+    position: relative;
+}
+
+.leader-header {
+    position: relative;
+    z-index: 10;
+}
+
+.leader-toggle {
+    position: relative;
+    z-index: 100 !important;
+
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    cursor: pointer !important;
+    pointer-events: auto !important;
+
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.leader-toggle .material-icons {
+    pointer-events: none !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .leader-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .leader-toggle {
+        flex-shrink: 0;
+        z-index: 999 !important;
+    }
+
+    .leader-content {
+        position: relative;
+        z-index: 5;
+    }
+}
+        .leader-toggle {
+    background: red !important;
+}
 
     </style>
 
@@ -1929,78 +1988,91 @@
         });
 
     </script>
-    <script>
+  <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    const buttons = document.querySelectorAll(".leader-toggle");
+    function setupLeadershipButtons() {
 
-    console.log("Leadership buttons found:", buttons.length);
+        const buttons = document.querySelectorAll(".leader-toggle");
 
-    buttons.forEach(function (button) {
+        console.log("Leadership toggle buttons:", buttons.length);
 
-        button.addEventListener("click", function (event) {
+        buttons.forEach(function (button) {
 
-            event.preventDefault();
-            event.stopPropagation();
-
-            const card = button.closest(".leader-card");
-
-            if (!card) {
-                console.error("Leader card not found.");
+            // Prevent duplicate listeners
+            if (button.dataset.toggleReady === "true") {
                 return;
             }
 
-            const details = card.querySelector(".leader-details");
-            const icon = button.querySelector(".material-icons");
+            button.dataset.toggleReady = "true";
 
-            if (!details) {
-                console.error("Leader details not found.");
-                return;
-            }
+            button.addEventListener("click", function (event) {
 
-            const isOpen = card.classList.contains("open");
+                event.preventDefault();
+                event.stopPropagation();
 
-            if (isOpen) {
+                const card = button.closest(".leader-card");
 
-                card.classList.remove("open");
-
-                button.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                button.setAttribute(
-                    "aria-label",
-                    "Show information"
-                );
-
-                if (icon) {
-                    icon.textContent = "add";
+                if (!card) {
+                    console.error("No .leader-card found.");
+                    return;
                 }
 
-            } else {
+                const details = card.querySelector(".leader-details");
+                const icon = button.querySelector(".material-icons");
 
-                card.classList.add("open");
-
-                button.setAttribute(
-                    "aria-expanded",
-                    "true"
-                );
-
-                button.setAttribute(
-                    "aria-label",
-                    "Hide information"
-                );
-
-                if (icon) {
-                    icon.textContent = "remove";
+                if (!details) {
+                    console.error("No .leader-details found.");
+                    return;
                 }
 
-            }
+                const currentlyOpen =
+                    card.classList.contains("open");
+
+                if (currentlyOpen) {
+
+                    card.classList.remove("open");
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    button.setAttribute(
+                        "aria-label",
+                        "Show information"
+                    );
+
+                    if (icon) {
+                        icon.textContent = "add";
+                    }
+
+                } else {
+
+                    card.classList.add("open");
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                    button.setAttribute(
+                        "aria-label",
+                        "Hide information"
+                    );
+
+                    if (icon) {
+                        icon.textContent = "remove";
+                    }
+
+                }
+
+            }, false);
 
         });
+    }
 
-    });
+    setupLeadershipButtons();
 
 });
 </script>
